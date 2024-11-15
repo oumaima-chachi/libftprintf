@@ -6,29 +6,35 @@
 /*   By: ochachi <ochachi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:52:22 by ochachi           #+#    #+#             */
-/*   Updated: 2024/11/14 16:15:52 by ochachi          ###   ########.fr       */
+/*   Updated: 2024/11/14 22:05:37 by ochachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	size_t	result;
+
+	result = write(1, &c, 1);
+	if (result == -1)
+	{
+		return (-1);
+	}
+	return (1);
 }
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
 	char	c;
 
 	if (n == -2147483648)
 	{
-		write(1, "-2147483648", 11);
-		return ;
+		return (write(1, "-2147483648", 11));
 	}
 	if (n < 0)
 	{
-		write(1, "-", 1);
+		return (write(1, "-", 1));
 		n = -n;
 	}
 	if (n >= 10)
@@ -36,29 +42,25 @@ void	ft_putnbr(int n)
 		ft_putnbr(n / 10);
 	}
 	c = (n % 10) + '0';
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	if (s == NULL)
 	{
-		return ;
+		return (write(1, "(null)", 6));
 	}
-	while (*s)
-	{
-		write(1, s, 1);
-		s++;
-	}
+	return (write(1, s, ft_strlen(s)));
 }
-void	ft_putunbr(unsigned int n)
+int	ft_putunbr(unsigned int n)
 {
-	char c;
+	char	c;
 
 	if (n >= 10)
 	{
 		ft_putunbr(n / 10);
 	}
 	c = (n % 10) + '0';
-	write(1, &c, 1);  
+	return (write(1, &c, 1));
 }

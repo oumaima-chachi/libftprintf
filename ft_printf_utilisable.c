@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_phex(uintptr_t num, char form)
+int	ft_phex(uintptr_t num, char form)
 {
 	char	*b;
 
@@ -27,19 +27,19 @@ void	ft_phex(uintptr_t num, char form)
 	ft_putchar(b[num % 16]);
 }
 
-void	ft_putp(void *p)
+int	ft_putp(void *p)
 {
 	if (!p)
 	{
-		write(1, "(nil)", 5);
+		return(write(1, "(nil)", 5));
 	}
-	write(1, "0x", 2);
+	return(write(1, "0x", 2));
 	ft_phex((uintptr_t)p, 'x');
 }
 
-void	ft_print_pr(void)
+int	ft_print_pr(void)
 {
-	write(1, "%", 1);
+	return(write(1, "%", 1));
 }
 
 size_t	ft_strlen(const char *str)
