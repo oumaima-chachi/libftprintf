@@ -14,7 +14,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -wall -wextra -werror
 
-SRCS = ft_printf_utils.c ft_printf_utilsable.c
+SRCS = ft_printf_utils.c ft_printf_utilsable.c ft_printf.c
 OBJS = $(SRCS:.c=o)
 
 all: $(NAME)
@@ -28,7 +28,7 @@ $(NAME): $(OBJS)
 clean:
 		rm -f $(OBJS)
 
-fclean:
+fclean: clean
 		rm -f $(NAME)
 
 re: fclean all

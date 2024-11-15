@@ -13,6 +13,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <inttypes.h>
+# include <stdarg.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -22,5 +23,8 @@ void	ft_putstr(char *s);
 void	ft_phex(uintptr_t num, char form);
 void	ft_putp(void *p);
 void	ft_print_pr(void);
+int		ft_printf(const char *format, ...);
+size_t	ft_strlen(const char *str);
+void	ft_putunbr(unsigned int n);
 
 #endif
