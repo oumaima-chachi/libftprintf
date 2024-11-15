@@ -27,12 +27,11 @@ int	ft_printf(const char *format, ...)
 			i++;
 			if (format[i] == 'c')
 			{
-				ft_putchar(va_arg(args, int));
-				calc++;
+				calc += ft_putchar(va_arg(args, int));
 			}
 			else if (format[i] == 's')
 			{
-				ft_putstr(va_arg(args, char *));
+				calc += ft_putstr(va_arg(args, char *));
 			}
 			else if (format[i] == 'p')
 			{
