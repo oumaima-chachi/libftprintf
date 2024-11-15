@@ -14,7 +14,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_printf_utils.c ft_hhhh.c ft_p.c
+SRCS = ft_printf_utils.c ft_utilisable.c ft_printf.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
