@@ -14,27 +14,29 @@
 
 int	ft_putchar(char c)
 {
-	size_t	result;
+	//size_t	result;
 
-	result = write(1, &c, 1);
-	if (result == -1)
-	{
-		return (-1);
-	}
+	 write(1, &c, 1);
+	// if (result == -1)
+	// {
+	// 	return (-1);
+	// }
 	return (1);
 }
 
 int	ft_putnbr(int n)
 {
 	char	c;
+	int		calc;
 
+	calc = 0;
 	if (n == -2147483648)
 	{
 		return (write(1, "-2147483648", 11));
 	}
 	if (n < 0)
 	{
-		return (write(1, "-", 1));
+		calc += ft_putchar('-');
 		n = -n;
 	}
 	if (n >= 10)
@@ -42,15 +44,14 @@ int	ft_putnbr(int n)
 		ft_putnbr(n / 10);
 	}
 	c = (n % 10) + '0';
-	return (write(1, &c, 1));
+	calc += write(1, &c, 1);
+	return (calc);
 }
 
 int	ft_putstr(char *s)
 {
 	if (s == NULL)
-	{
 		return (write(1, "(null)", 6));
-	}
 	return (write(1, s, ft_strlen(s)));
 }
 int	ft_putunbr(unsigned int n)

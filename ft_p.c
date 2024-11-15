@@ -35,24 +35,23 @@ int	ft_printf(const char *format, ...)
 			}
 			else if (format[i] == 'p')
 			{
-				ft_putp(va_arg(args, void *));
-				calc += 2;
+				calc += ft_putp(va_arg(args, void *));
 			}
 			else if (format[i] == 'd' || format[i] == 'i')
 			{
-				ft_putnbr(va_arg(args, int));
+				calc += ft_putnbr(va_arg(args, int));
 			}
 			else if (format[i] == 'u')
 			{
-				ft_putunbr(va_arg(args, unsigned int));
+				calc += ft_putunbr(va_arg(args, unsigned int));
 			}
 			else if (format[i] == 'x')
 			{
-				ft_phex(va_arg(args, unsigned int), 'x');
+				calc += ft_phex(va_arg(args, unsigned int), 'x');
 			}
 			else if (format[i] == 'X')
 			{
-				ft_phex(va_arg(args, unsigned int), 'X');
+				calc += ft_phex(va_arg(args, unsigned int), 'X');
 			}
 			else if (format[i] == '%')
 			{
@@ -60,6 +59,7 @@ int	ft_printf(const char *format, ...)
 				calc++;
 			}
 		}
+		i++;
 	}
 	va_end(args);
 	return (calc);
