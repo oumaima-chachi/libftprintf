@@ -14,9 +14,8 @@
 
 int	ft_putchar(char c)
 {
-	//size_t	result;
-
-	 write(1, &c, 1);
+	// size_t	result;
+	write(1, &c, 1);
 	// if (result == -1)
 	// {
 	// 	return (-1);
@@ -31,18 +30,14 @@ int	ft_putnbr(int n)
 
 	calc = 0;
 	if (n == -2147483648)
-	{
 		return (write(1, "-2147483648", 11));
-	}
 	if (n < 0)
 	{
 		calc += ft_putchar('-');
 		n = -n;
 	}
 	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-	}
+		calc += ft_putnbr(n / 10);
 	c = (n % 10) + '0';
 	calc += write(1, &c, 1);
 	return (calc);
@@ -56,12 +51,15 @@ int	ft_putstr(char *s)
 }
 int	ft_putunbr(unsigned int n)
 {
+	int		count;
 	char	c;
 
+	count = 0;
 	if (n >= 10)
 	{
-		ft_putunbr(n / 10);
+		count += ft_putunbr(n / 10);
 	}
 	c = (n % 10) + '0';
-	return (write(1, &c, 1));
+	count += write(1, &c, 1);
+	return (count);
 }
