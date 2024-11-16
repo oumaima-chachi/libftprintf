@@ -59,6 +59,10 @@ int	ft_printf(const char *format, ...)
 				calc++;
 			}
 		}
+		else
+		{
+			calc += write(1, &format[i], 1);
+		}
 		i++;
 	}
 	va_end(args);

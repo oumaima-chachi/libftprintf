@@ -1,39 +1,35 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-int main(void)
+int	main()
 {
-    // Testing characters
-    ft_printf("%c\n", 'A');  // Expected: A
-    ft_printf("%c\n", '\n');  // Expected: (newline)
+	int	num;
 
-    // Testing strings
-    ft_printf("%s\n", "Hello, World!");  // Expected: Hello, World!
-    ft_printf("%s\n", NULL);              // Expected: (null)
+	// Test char
+	ft_printf("%c\n", 'A');  // A
+	ft_printf("%c\n", '\n'); // newline
+	// Test s
+	ft_printf("%s\n", "Hello, World!"); // Hello, World!
+	ft_printf("%s\n", NULL); //  (null)
+	// Test p
+	num = 42;
+	ft_printf("%p\n", &num); //  0x...chihaja
+	// Test int
+	ft_printf("%d\n", 42);          // 42
+	ft_printf("%d\n", -42);         //-42
+	ft_printf("%d\n", 2147483647);  // 2147483647
+	ft_printf("%d\n", -2147483648); // -2147483648
+	// Test unsigned
+	ft_printf("%u\n", 42);         // 42
+	ft_printf("%u\n", -42);        // 4294967254
+	ft_printf("%u\n", 4294967295); // 4294967295
+	// Test hexa
+	ft_printf("%x\n", 255); // ff
+	ft_printf("%X\n", 255); // FF
+	// Test per
+	ft_printf("%%\n"); //  %
+	// Mixed
+	ft_printf("salam ana  %s, endi %d chofo had l f chhal zwiwna hiya o khatha %x\n", "oumaima", 19,
+		255);
 
-    // Testing pointer
-    int num = 42;
-    ft_printf("%p\n", &num);  // Expected: 0x...
-
-    // Testing integers
-    ft_printf("%d\n", 42);         // Expected: 42
-    ft_printf("%d\n", -42);        // Expected: -42
-    ft_printf("%d\n", 2147483647); // Expected: 2147483647
-    ft_printf("%d\n", -2147483648); // Expected: -2147483648
-
-    // Testing unsigned
-    ft_printf("%u\n", 42);        // Expected: 42
-    ft_printf("%u\n", -42);       // Expected: 4294967254
-    ft_printf("%u\n", 4294967295); // Expected: 4294967295
-
-    // Testing hexadecimal
-    ft_printf("%x\n", 255);       // Expected: ff
-    ft_printf("%X\n", 255);       // Expected: FF
-
-    // Testing percentage sign
-    ft_printf("%%\n");            // Expected: %
-
-    // Mixed specifiers
-    ft_printf("Hello %s, your age is %d and your score is %x\n", "John", 25, 255); 
-    // Expected: Hello John, your
 }
