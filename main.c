@@ -29,7 +29,7 @@ int	main()
 	// Test per
 	ft_printf("%%\n"); //  %
 	// Mixed
-	ft_printf("salam ana  %s, endi %d chofo had l f chhal zwiwna hiya o khatha %x\n", "oumaima", 19,
+	ft_printf("salam ana  %s, endi %d chofo had l f chhal zwiwna hiya o khatha %x\n", "oumaima", 20,
 		255);
 
 }

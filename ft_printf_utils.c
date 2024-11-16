@@ -14,12 +14,12 @@
 
 int	ft_putchar(char c)
 {
-	// size_t	result;
-	write(1, &c, 1);
-	// if (result == -1)
-	// {
-	// 	return (-1);
-	// }
+	ssize_t	result;
+	result = write(1, &c, 1);
+	if (result == -1)
+	{
+		return (-1);
+	}
 	return (1);
 }
 
