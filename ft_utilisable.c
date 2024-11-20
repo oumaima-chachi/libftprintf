@@ -47,7 +47,7 @@ int	ft_print_pr(void)
 
 size_t	ft_strlen(const char *str)
 {
-	size_t tol;
+	size_t	tol;
 
 	tol = 0;
 	while (str[tol] != '\0')

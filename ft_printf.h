@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
+
 int		ft_putchar(char c);
 int		ft_putnbr(int n);
 int		ft_putstr(char *s);

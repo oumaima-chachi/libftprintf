@@ -15,6 +15,7 @@
 int	ft_putchar(char c)
 {
 	ssize_t	result;
+
 	result = write(1, &c, 1);
 	if (result == -1)
 	{
@@ -49,6 +50,7 @@ int	ft_putstr(char *s)
 		return (write(1, "(null)", 6));
 	return (write(1, s, ft_strlen(s)));
 }
+
 int	ft_putunbr(unsigned int n)
 {
 	int		count;

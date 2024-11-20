@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int	h_specificateurs(char spec, va_list args)
+static int	h_speci(char spec, va_list args)
 {
 	if (spec == 'c')
 		return (ft_putchar(va_arg(args, int)));
@@ -33,7 +33,7 @@ static int	h_specificateurs(char spec, va_list args)
 	return (0);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(const char *f, ...)
 {
 	va_list	args;
 	int		calc;
@@ -41,16 +41,16 @@ int	ft_printf(const char *format, ...)
 
 	calc = 0;
 	i = 0;
-	va_start(args, format);
-	while (format[i] != '\0')
+	va_start(args, f);
+	while (f[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] != '\0')
+		if (f[i] == '%' && f[i + 1] != '\0')
 		{
 			i++;
-			calc += h_specificateurs(format[i], args);
+			calc += h_speci(f[i], args);
 		}
 		else
-			calc += write(1, &format[i], 1);
+			calc += write(1, &f[i], 1);
 		i++;
 	}
 	va_end(args);
