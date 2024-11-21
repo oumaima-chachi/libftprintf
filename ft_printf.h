@@ -12,18 +12,20 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include <inttypes.h>
+
 # include <stdarg.h>
+# include <stdint.h>
 # include <stdio.h>
 # include <unistd.h>
 
 int		ft_putchar(char c);
 int		ft_putnbr(int n);
 int		ft_putstr(char *s);
-int		ft_phex(uintptr_t num, char form);
+int		ft_phex(unsigned long long num, char form);
 int		ft_putp(void *p);
 int		ft_print_pr(void);
 int		ft_printf(const char *format, ...);
 int		ft_putunbr(unsigned int n);
 size_t	ft_strlen(const char *str);
+
 #endif
