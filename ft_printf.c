@@ -42,6 +42,8 @@ int	ft_printf(const char *f, ...)
 	calc = 0;
 	i = 0;
 	va_start(args, f);
+	if (!f|| (f[i] == '%' && f[i + 1] == '\0'))
+		return (-1);
 	while (f[i] != '\0')
 	{
 		if (f[i] == '%' && f[i + 1] != '\0')
@@ -56,3 +58,4 @@ int	ft_printf(const char *f, ...)
 	va_end(args);
 	return (calc);
 }
+

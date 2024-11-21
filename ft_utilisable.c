@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_phex(uintptr_t num, char form)
+int	ft_phex(unsigned long long num, char form)
 {
 	char	*b;
 	int		calc;
@@ -37,7 +37,7 @@ int	ft_putp(void *p)
 		return (write(1, "(nil)", 5));
 	}
 	write(1, "0x", 2);
-	return (2 + ft_phex((uintptr_t)p, 'x'));
+	return (2 + ft_phex((unsigned long long)p, 'x'));
 }
 
 int	ft_print_pr(void)
